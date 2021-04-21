@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.14.2, 2021-04-20T23:03:43. -->
+<!-- Written by QtCreator 4.14.2, 2021-04-21T22:24:13. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -169,16 +169,16 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">main</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/Users/84904/Desktop/client/main.py</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/84904/Desktop/client/main.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">main2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/Users/84904/OneDrive - VNU-HCMUS/Desktop/Socket_Python/client/main.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/84904/OneDrive - VNU-HCMUS/Desktop/Socket_Python/client/main.py</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{7492c7f7-0b19-41cc-a406-71ed8b4fd69e}</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\84904\Desktop\client\main.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\84904\OneDrive - VNU-HCMUS\Desktop\Socket_Python\client\main.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/84904/Desktop/client</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/84904/OneDrive - VNU-HCMUS/Desktop/Socket_Python/client</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.1">
     <value type="QString" key="Analyzer.Perf.CallgraphMode">dwarf</value>
@@ -241,16 +241,15 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">logo</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/Users/84904/Desktop/client/logo.jpg</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/84904/Desktop/client/logo.jpg</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{7492c7f7-0b19-41cc-a406-71ed8b4fd69e}</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\84904\Desktop\client\logo.jpg</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">logo2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/Users/84904/OneDrive - VNU-HCMUS/Desktop/Socket_Python/client/logo.jpg</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/84904/OneDrive - VNU-HCMUS/Desktop/Socket_Python/client/logo.jpg</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\84904\OneDrive - VNU-HCMUS\Desktop\Socket_Python\client\logo.jpg</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/84904/Desktop/client</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/84904/OneDrive - VNU-HCMUS/Desktop/Socket_Python/client</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">2</value>
   </valuemap>

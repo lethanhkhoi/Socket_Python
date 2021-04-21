@@ -44,14 +44,18 @@ class client(QWidget):
         self.abutton = self.findChild(QPushButton,"App_R_Button")
         self.pbutton = self.findChild(QPushButton,"Process_R_Button")
         self.kbutton = self.findChild(QPushButton,"Key_Stroke_Button")
+        self.rbutton = self.findChild(QPushButton,"Fix_Reg_Button")
 
         self.cbutton.clicked.connect(self.check)
         self.ebutton.clicked.connect(self.exit_)
         self.abutton.clicked.connect(self.app_r)
         self.pbutton.clicked.connect(self.process_r)
         self.kbutton.clicked.connect(self.keystroke_r)
+        self.rbutton.clicked.connect(self.reg)
 
-
+    def reg(self):
+        self.regis = Registry()
+        self.regis.show()
 
     def keystroke_r(self):
         self.key = Keystroke()
@@ -185,6 +189,19 @@ class Keystroke(QWidget):
         self.list = self.findChild(QListWidget,"list")
         self.list.clear()
 
+class Registry(QWidget):
+    def __init__(self):
+        super(Registry,self).__init__()
+        self.setWindowTitle("registry")
+        self.load_ui()
+
+    def load_ui(self):
+        loader = QUiLoader()
+        path = os.path.join(os.path.dirname(__file__),"reg.ui")
+        ui_file = QFile(path)
+        ui_file.open(QFile.ReadOnly)
+        loader.load(ui_file,self)
+        ui_file.close()
 
 def create(ipline):
     PORT = 5656
