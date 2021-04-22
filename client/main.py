@@ -73,7 +73,7 @@ class client(QWidget):
         exit()
 
     def check(self):
-        self.ipline = self.findChild(QLineEdit,"lineEdit")
+        self.ipline = self.findChild(QLineEdit,"lineEdit").text()
         try:
             create(self.ipline)
             msg = QMessageBox()
@@ -203,10 +203,11 @@ class Registry(QWidget):
         loader.load(ui_file,self)
         ui_file.close()
 
-def create(ipline):
+
+def create(ipline: str):
     PORT = 5656
     FORMAT = 'utf-8'
-    SERVER = "127.0.0.1"
+    SERVER = ipline
     ADDR = (SERVER,PORT)
 
     Client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)

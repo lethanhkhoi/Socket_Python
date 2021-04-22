@@ -32,7 +32,7 @@ class server(QWidget):
 
 def create():
     PORT = 5656
-    SERVER = "127.0.0.1"
+    SERVER = ""
     ADDR = (SERVER,PORT)
     server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     server.bind(ADDR)
