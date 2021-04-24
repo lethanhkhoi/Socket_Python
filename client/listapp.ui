@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>362</width>
-    <height>300</height>
+    <width>473</width>
+    <height>366</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QPushButton" name="kill_Button">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>20</x>
      <y>10</y>
-     <width>71</width>
-     <height>61</height>
+     <width>91</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="text">
@@ -29,10 +29,10 @@
   <widget class="QPushButton" name="view_Button">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>130</x>
      <y>10</y>
-     <width>71</width>
-     <height>61</height>
+     <width>91</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="text">
@@ -42,10 +42,10 @@
   <widget class="QPushButton" name="delete_Button">
    <property name="geometry">
     <rect>
-     <x>190</x>
+     <x>240</x>
      <y>10</y>
-     <width>71</width>
-     <height>61</height>
+     <width>91</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="text">
@@ -55,38 +55,38 @@
   <widget class="QPushButton" name="start_Button">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>350</x>
      <y>10</y>
-     <width>71</width>
-     <height>61</height>
+     <width>91</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="text">
     <string>START</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="list_app">
+  <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>90</y>
-     <width>341</width>
-     <height>192</height>
+     <x>20</x>
+     <y>120</y>
+     <width>421</width>
+     <height>221</height>
     </rect>
    </property>
    <column>
     <property name="text">
-     <string>Name Application</string>
+     <string>Name</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>ID Application</string>
+     <string>ID</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>Count Threads</string>
+     <string>Threads Count</string>
     </property>
    </column>
   </widget>

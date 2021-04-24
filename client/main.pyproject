@@ -1,3 +1,3 @@
 {
-    "files": ["listapp.ui","kill.ui","form.ui","start.ui","key.ui","main.py","logo.jpg","reg.ui"]
+    "files": ["form.ui","logo.jpg","main.py","listapp.ui","start.ui","kill.ui","reg.ui","key.ui","pic.ui"]
 }
