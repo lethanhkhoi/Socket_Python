@@ -1,23 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>List_Design</class>
+ <widget class="QWidget" name="List_Design">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>462</width>
-    <height>365</height>
+    <width>473</width>
+    <height>366</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QPushButton" name="kill_Button">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>91</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>KILL</string>
+   </property>
+  </widget>
   <widget class="QPushButton" name="view_Button">
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>20</y>
+     <y>10</y>
      <width>91</width>
      <height>81</height>
     </rect>
@@ -26,11 +39,37 @@
     <string>XEM</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="list">
+  <widget class="QPushButton" name="delete_Button">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>10</y>
+     <width>91</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>XÓA</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="start_Button">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>10</y>
+     <width>91</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>START</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>130</y>
+     <y>120</y>
      <width>421</width>
      <height>221</height>
     </rect>
@@ -50,45 +89,6 @@
      <string>Threads Count</string>
     </property>
    </column>
-  </widget>
-  <widget class="QPushButton" name="kill_Button">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>91</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>KILL</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="delete_Button">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>20</y>
-     <width>91</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>XÓA</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="start_Button">
-   <property name="geometry">
-    <rect>
-     <x>350</x>
-     <y>20</y>
-     <width>91</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>START</string>
-   </property>
   </widget>
  </widget>
  <resources/>

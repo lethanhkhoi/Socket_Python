@@ -26,7 +26,7 @@
     <string>START</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="Name">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -36,7 +36,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Nhập ID</string>
+    <string>Nhập tên app</string>
    </property>
   </widget>
  </widget>

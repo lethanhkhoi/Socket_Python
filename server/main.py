@@ -7,12 +7,28 @@ import time
 import signal
 import pyautogui
 import wmi
+import subprocess
+import win32gui
+import win32process
+import win32pdhutil
 
 from PySide2.QtWidgets import QApplication, QWidget, QPushButton,QMessageBox
 from PySide2.QtCore import QFile
 from PySide2.QtUiTools import QUiLoader
 
 BUFFER_SIZE = 4096
+
+def get_hwnds_for_pid (pid):
+  def callback (hwnd, hwnds):
+    if win32gui.IsWindowVisible (hwnd) and win32gui.IsWindowEnabled (hwnd):
+      _, found_pid = win32process.GetWindowThreadProcessId (hwnd)
+      if found_pid == pid:
+        hwnds.append (hwnd)
+    return True
+
+  hwnds = []
+  win32gui.EnumWindows (callback, hwnds)
+  return hwnds
 
 class Form(QWidget):
     def __init__(self):
@@ -76,6 +92,15 @@ class Server:
                 elif data.decode() == "runprocess":
                     self.conn.send(str.encode("runprocess"))
                     self.run_process()
+                elif data.decode() == "killid":
+                    self.conn.send(str.encode("killid"))
+                    self.kill()
+                elif data.decode()=="startapp":
+                    self.conn.send(str.encode("startapp"))
+                    self.start()
+                elif data.decode()=="runapp":
+                    self.conn.send(str.encode("runapp"))
+                    self.run_app()
                 if not data:
                     break
 
@@ -87,15 +112,15 @@ class Server:
             s1 = f"{process.ProcessID:<10}"
             s2 = f"{process.Name:<20}"
             s3 = f"{process.ThreadCount:<10}"
-            #self.conn.send(bytes(str(s1)))
+
             self.conn.send(str.encode(s1))
             self.conn.recv(1)
 
-            #self.conn.send(bytes(str(s2)))
+
             self.conn.send(str.encode(s2))
             self.conn.recv(1)
 
-            #self.conn.send(bytes(str(s3))
+
             self.conn.send(str.encode(s3))
             self.conn.recv(1)
 
@@ -120,8 +145,49 @@ class Server:
 
         file.close()
         os.remove("shot.jpg")
+    def kill(self):
+        try:
+            data = self.conn.recv(4096)
+            pid = int(data.decode())
+            os.kill(pid,signal.SIGTERM)
+            self.conn.send(str.encode("ok"))
+        except:
+            self.conn.send(str.encode("er"))
+    def start(self):
+        try:
+            data = self.conn.recv(4096)
+            name = str(data.decode()) + ".exe"
+            self.conn.send(str.encode("ok"))
+            os.startfile(name)
+        except:
+            self.conn.send(str.encode("er"))
 
-def kill(socket):
+
+    def run_app(self):
+        f = wmi.WMI()
+        for process in f.Win32_Process():
+            s1 = f"{process.ProcessID:<10}"
+            s2 = f"{process.Name:<20}"
+            s3 = f"{process.ThreadCount:<10}"
+        #for process in f.ExecQuery('select Name , ProcessId , ThreadCount from Win32_Process '):
+            t = get_hwnds_for_pid(process.ProcessID)
+            if (len(t) != 0):
+              title = win32gui.GetWindowText(t[0])
+
+              self.conn.send(str.encode(s1))
+              self.conn.recv(1)
+
+
+              self.conn.send(str.encode(s2))
+              self.conn.recv(1)
+
+
+              self.conn.send(str.encode(s3))
+              self.conn.recv(1)
+
+
+              print(process.ProcessID, "  ", process.Name," " ,process.ThreadCount)
+        self.conn.send(str.encode("end"))
 
 
 if __name__ == "__main__":
