@@ -63,6 +63,7 @@ class Server:
         super(Server,self).__init__()
         self.server = None
         self.signal = signal
+
         self.PORT = 5656
         self.SERVER = ""
         self.ADDR = (self.SERVER,self.PORT)
@@ -77,8 +78,6 @@ class Server:
         self.conn, self.addr = self.server.accept()
         self.signal = True
 
-    def __str__(self):
-        return self.address
 
     def run(self):
         with self.conn:

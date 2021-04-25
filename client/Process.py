@@ -31,6 +31,7 @@ class Process(QWidget):
         self.name = []
         self.id = []
         self.count = []
+        self.row =0
         self .load_ui()
 
     def load_ui(self):
@@ -62,13 +63,22 @@ class Process(QWidget):
         row = self.row -1
         for i in range(len(self.name)):
             self.list.removeRow(row-i)
+        self.name =[]
+        self.id = []
+        self.count = []
+        self.row =0
+
 
     def view_start(self):
         process_(self.client_)
         self.client_.recv(4096)
         self.view_process()
     def view_process(self):
-        self.row = 0
+        if self.row !=0:
+            self.name =[]
+            self.id = []
+            self.count = []
+            self.row =0
         print("Printing")
 
         # Iterating through all the running processes

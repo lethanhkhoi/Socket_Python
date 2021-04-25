@@ -34,6 +34,7 @@ class Application(QWidget):
         self.name = []
         self.id = []
         self.count = []
+        self.row = 0
         self.load_ui()
 
     def load_ui(self):
@@ -60,7 +61,11 @@ class Application(QWidget):
         self.view_app()
 
     def view_app(self):
-        self.row = 0
+        if self.row != 0:
+            self.name =[]
+            self.id = []
+            self.count = []
+            self.row =0
         print("Printing")
 
         # Iterating through all the running processes
@@ -108,4 +113,9 @@ class Application(QWidget):
         row = self.row -1
         for i in range(len(self.name)):
             self.list.removeRow(row-i)
+
+        self.name =[]
+        self.id = []
+        self.count = []
+        self.row =0
 
