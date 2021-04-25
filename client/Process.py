@@ -44,7 +44,7 @@ class Process(QWidget):
         self.list = self.findChild(QTableWidget,"tableWidget")
         self.list.setColumnWidth(0,150)
         self.list.setColumnWidth(1,150)
-        self.list.setColumnWidth(0,150)
+        self.list.setColumnWidth(2,150)
 
         self.kbutton = self.findChild(QPushButton,"kill_Button")
         self.sbutton = self.findChild(QPushButton,"start_Button")
@@ -80,13 +80,13 @@ class Process(QWidget):
             self.count = []
             self.row =0
         print("Printing")
-
-        # Iterating through all the running processes
         data = self.client_.recv(2048)
         while True:
          #   s1 = f"{process.ProcessID:<10}"
           #  s2 = f"{process.Name:<20}"
            # s3 = f"{process.ThreadCount:<10}"
+           if(data.decode()=="end"):
+               break
            self.client_.send(bytes('1','utf-8'))
            s1 = data.decode()
            self.id.append(str(s1))
@@ -103,19 +103,13 @@ class Process(QWidget):
            print(str(s1) + str(s2) + str(s3))
            self.row +=1
            data = self.client_.recv(2048)
-            # Displaying the P_ID and P_Name of the process
-           if(data.decode()=="end"):
-               break
+
         #save data to string[] and input to table widget
         self.list.setRowCount(self.row)
         for i in range(len(self.name)):
             self.list.setItem(i,0,QTableWidgetItem(self.name[i]))
             self.list.setItem(i,1,QTableWidgetItem(self.id[i]))
             self.list.setItem(i,2,QTableWidgetItem(self.count[i]))
-
-
-
-
 
     def kill_app(self):
         self.kill_ = Kill.kill(self.client_)

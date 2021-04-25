@@ -11,7 +11,8 @@ import time
 import PIL.Image
 import PIL.ImageTk
 from PySide2.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,QRect, QSize, QUrl, Qt)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,QFontDatabase, QIcon, QLinearGradient, QPalette, QPainter, QPixmap,QRadialGradient)
+from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,QFontDatabase, QIcon, QLinearGradient)
+from PySide2.QtGui import (QPalette, QPainter, QPixmap,QRadialGradient)
 from PySide2.QtWidgets import *
 from PySide2.QtWidgets import QListWidget,QFileDialog
 from PySide2.QtCore import QFile
@@ -36,13 +37,12 @@ class Form(QWidget):
         self.set_Button()
 
 
-
     def load_ui(self):
-        loader = QUiLoader()
-        path = os.path.join(os.path.dirname(__file__), "form.ui")
-        ui_file = QFile(path)
+        loader = QUiLoader()  #gọi công cụ để load
+        path = os.path.join(os.path.dirname(__file__), "form.ui")  #địa chỉ và tên của file mà mình muốn load file ở đây là form.ui
+        ui_file = QFile(path) # tạo 1 biến là file đó
         ui_file.open(QFile.ReadOnly)
-        loader.load(ui_file,self)
+        loader.load(ui_file,self) #load file đó để hiện thị lên
         ui_file.close()
 
     def set_icon(self):
@@ -112,7 +112,7 @@ class Form(QWidget):
     def exit_(self):
         exit()
 
-    def check(self,client_):
+    def check(self):
         self.ipline = self.findChild(QLineEdit,"lineEdit").text()
         try:
             self.client_ = create(self.ipline)

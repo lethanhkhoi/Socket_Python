@@ -51,18 +51,17 @@ class Form(QWidget):
         loader.load(ui_file, self)
         ui_file.close()
     def create(self):
-        if self.server_ == None:
-            self.server_ = Server()
+        if self.server_ == None: #kiểm tra đã tồn tại server nào chưa nếu chưa thì tạo nếu rồi thì cho bằng None tạo lại
+            self.server_ = Server()#để tránh bị lỗi khi click mở server nhiều lần
         elif self.server_ != None:
             self.server_ = None
             self.server = Server()
 
 
 class Server:
-    def __init__(self,signal=False):
+    def __init__(self):
         super(Server,self).__init__()
         self.server = None
-        self.signal = signal
 
         self.PORT = 5656
         self.SERVER = ""
@@ -76,7 +75,6 @@ class Server:
         self.server.bind(self.ADDR)
         self.server.listen(1)
         self.conn, self.addr = self.server.accept()
-        self.signal = True
 
 
     def run(self):
@@ -102,7 +100,6 @@ class Server:
                     self.run_app()
                 if not data:
                     break
-
     def shut_down(self):
         os.system("shutdown /s /t 30")
     def run_process(self):
@@ -115,14 +112,11 @@ class Server:
             self.conn.send(str.encode(s1))
             self.conn.recv(1)
 
-
             self.conn.send(str.encode(s2))
             self.conn.recv(1)
 
-
             self.conn.send(str.encode(s3))
             self.conn.recv(1)
-
 
             print(str(s1)+str(s2)+str(s3))
         self.conn.send(str.encode("end"))
@@ -149,15 +143,15 @@ class Server:
             data = self.conn.recv(4096)
             pid = int(data.decode())
             os.kill(pid,signal.SIGTERM)
-            self.conn.send(str.encode("ok"))
+            self.conn.send(str.encode("ok"))#gửi xác nhận kill thành công
         except:
-            self.conn.send(str.encode("er"))
+            self.conn.send(str.encode("er"))#gửi xác nhận kill thất bại
     def start(self):
         try:
             data = self.conn.recv(4096)
             name = str(data.decode()) + ".exe"
-            self.conn.send(str.encode("ok"))
             os.startfile(name)
+            self.conn.send(str.encode("ok"))
         except:
             self.conn.send(str.encode("er"))
 
@@ -171,19 +165,14 @@ class Server:
         #for process in f.ExecQuery('select Name , ProcessId , ThreadCount from Win32_Process '):
             t = get_hwnds_for_pid(process.ProcessID)
             if (len(t) != 0):
-              title = win32gui.GetWindowText(t[0])
-
               self.conn.send(str.encode(s1))
               self.conn.recv(1)
-
 
               self.conn.send(str.encode(s2))
               self.conn.recv(1)
 
-
               self.conn.send(str.encode(s3))
               self.conn.recv(1)
-
 
               print(process.ProcessID, "  ", process.Name," " ,process.ThreadCount)
         self.conn.send(str.encode("end"))

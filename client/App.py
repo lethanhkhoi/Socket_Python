@@ -45,11 +45,15 @@ class Application(QWidget):
         loader.load(ui_file,self)
         ui_file.close()
 
+
         self.kbutton = self.findChild(QPushButton,"kill_Button")
         self.sbutton = self.findChild(QPushButton,"start_Button")
         self.dbutton = self.findChild(QPushButton,"delete_Button")
         self.vbutton = self.findChild(QPushButton,"view_Button")
         self.list = self.findChild(QTableWidget,"list")
+        self.list.setColumnWidth(0,150)
+        self.list.setColumnWidth(1,150)
+        self.list.setColumnWidth(2,150)
 
         self.kbutton.clicked.connect(self.kill_app)
         self.sbutton.clicked.connect(self.start_app)
